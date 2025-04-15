@@ -46,4 +46,6 @@ jobs:
           }' \
           https://holam24062003.atlassian.net/rest/api/3/issue/$ISSUE_KEY/transitions
 
-  
+    - name: Notify Slack
+      run: |
+        curl -X POST -H 'Content-type: application/json' --data '{"text":"Pull Request has been merged!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
